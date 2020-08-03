@@ -17,7 +17,7 @@ export class CandidateListComponent implements OnInit {
 
   dataModel: any = {};
 
-  searchFields = [ { 'key': 'name' }, { 'key': 'gender' }, { 'key': 'technologies' } ];
+  searchFields = [ 'name', 'gender', 'technologies' ];
 
   constructor( public dialog: MatDialog, private _candidateService: CandidateService ) { }
 
@@ -44,9 +44,9 @@ export class CandidateListComponent implements OnInit {
           }
         } else {
           if ( this._candidateService.getLocalStorageValueLength( 'candidates' ) > response.length ) {
-            this.candidates = this._candidateService.containsValue( this._candidateService.getLocalStorageItem( 'candidates' ), searchText );
+            this.candidates = this._candidateService.containsValue( this._candidateService.getLocalStorageItem( 'candidates' ), this.searchFields, searchText );
           } else {
-            this.candidates = this._candidateService.containsValue( response, searchText );
+            this.candidates = this._candidateService.containsValue( response, this.searchFields, searchText );
           }
         }
       }, ( error: HttpErrorResponse ) => {

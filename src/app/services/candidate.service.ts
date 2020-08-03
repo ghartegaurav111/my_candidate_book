@@ -32,10 +32,12 @@ export class CandidateService {
   }
 
   // ************ Service to check object value in array ************ //
-  containsValue( array: Array<any>, searchQuery: string ) {
+  containsValue( array: Array<any>, searchFields: Array<string>, searchQuery: string ) {
     return array.filter( ( obj: any ) => {
       return Object.keys( obj ).some( ( key: any ) => {
-        return obj[ key ] ? obj[ key ].toString().toLowerCase().includes( searchQuery.toLowerCase() ) : null;
+        if ( searchFields.indexOf( key.toString() ) > -1 ) {
+          return obj[ key ] ? obj[ key ].toString().toLowerCase().includes( searchQuery.toLowerCase() ) : null;
+        }
       } );
     } );
   }
