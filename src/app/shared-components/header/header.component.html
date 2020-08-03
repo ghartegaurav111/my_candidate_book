@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>My Candidate Work Book</span>
+    <span class="example-spacer"></span>
+    <mat-chip-list>
+      <mat-chip>Total: {{candidateCounts?.total}}</mat-chip>
+      <mat-chip color="accent" selected>Selected: {{candidateCounts?.selected}}</mat-chip>
+      <mat-chip color="accent" selected>Rejected: {{candidateCounts?.rejected}}</mat-chip>
+    </mat-chip-list>
+  </mat-toolbar-row>
+</mat-toolbar>

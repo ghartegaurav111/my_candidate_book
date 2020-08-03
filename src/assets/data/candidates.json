@@ -1,0 +1,47 @@
+[{
+    "id": 1,
+    "name": "Gaurav Gharte",
+    "city": "Nashik",
+    "gender": "Male",
+    "technologies": [
+      "AngularJs",
+      "Angular 2/4/5",
+      "ReactJs"
+    ],
+    "status": "Interview"
+  },
+  {
+    "id": 2,
+    "name": "Iqbal Alam",
+    "city": "Pune",
+    "gender": "Male",
+    "technologies": [
+      "C#",
+      "NodeJs",
+      "MySql"
+    ],
+    "status": "Interview"
+  },
+  {
+    "id": 3,
+    "name": "Tushar Phalke",
+    "city": "Mumbai",
+    "gender": "Male",
+    "technologies": [
+      "NodeJs",
+      "Angular"
+    ],
+    "status": "Rejected"
+  },
+  {
+    "id": 4,
+    "name": "Sonali Londhe",
+    "city": "Sinnar",
+    "gender": "Female",
+    "technologies": [
+      "Testing",
+      "MySql"
+    ],
+    "status": "Rejected"
+  }
+]

@@ -1,0 +1,37 @@
+<app-header [candidateCounts]="getCandidateCount()"></app-header>
+
+<div class="m-3 text-right">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search candidate...</mat-label>
+    <input matInput [(ngModel)]="dataModel.searchText" (input)="getAllCandidates(dataModel?.searchText);">
+    <button mat-button mat-icon-button matSuffix (click)="clearSearchField();" *ngIf="dataModel?.searchText">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button class="ml-3" mat-mini-fab color="primary" matTooltip="Click to add new candidate" (click)="openAddCandidateModal();">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<div class="list_container">
+  <mat-card class="card" *ngFor="let candidate of candidates">
+    <mat-card-header>
+      <mat-card-title>{{candidate?.name}} ({{candidate?.gender}})</mat-card-title>
+      <mat-card-subtitle>{{candidate?.city}}</mat-card-subtitle>
+      <mat-card-subtitle class="status">Status: {{candidate?.status}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-chip-list>
+        <mat-chip *ngFor="let technology of candidate?.technologies">{{technology}}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="changeStatus(candidate, 'Selected');">Select</button>
+      <button mat-raised-button color="warn" (click)="changeStatus(candidate, 'Rejected');">Reject</button>
+    </mat-card-actions>
+  </mat-card>
+  <h3 *ngIf="!candidates?.length">No candidate data to show</h3>
+</div>
